@@ -20,7 +20,7 @@
               <p *ngIf="loginForm.get('password')?.errors?.['pattern']">Contains numbers,alphabets,specialCharacters</p> 
            </div>
             <div class="flex-center">
-              <button type="submit" class="btn btn-primary">Login</button> 
+              <button type="submit"  (click)="login()"  class="btn btn-primary">Login</button> 
             </div>
           </form>
     </div>
