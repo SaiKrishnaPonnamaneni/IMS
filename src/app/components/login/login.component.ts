@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
-import { Token } from 'src/app/models/token'; // Adjust the import path as necessary
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { Token } from 'src/app/models/token'; // Adjust the import path as neces
 export class LoginComponent {
   public loginForm: FormGroup;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router:Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
@@ -21,22 +21,22 @@ export class LoginComponent {
       ])
     });
   }
+  ngOnint():  void{
 
-  login() {
-    if (this.loginForm.valid) {
-      this.loginService.doLogin(this.loginForm.value).subscribe(
-        (data: Token) => {
-          localStorage.setItem('token', data.token);
-          console.log('Login successful:', data);
-          // Handle successful login here
-        },
-        (err: any) => {
-          alert('Internal Server Error');
-          console.error('Login error:', err);
-        }
-      );
-    } else {
-      alert('Form is not valid');
-    }
   }
-}
+  login(){
+    this.loginService.doLogin(this.loginForm.value).subscribe(
+     value=>{
+      localStorage.setItem("token",value.token);
+      this.router.navigateByUrl("/dashboard");
+      alert("succes");
+     },
+     err=>{
+      alert("Faild");
+     }
+
+    )
+
+  }
+  }
+

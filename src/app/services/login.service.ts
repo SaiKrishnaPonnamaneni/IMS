@@ -12,7 +12,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) {}
 
-  doLogin(payLoad: Login): Observable<Token> {
+  doLogin(payLoad:Login): Observable<Token> {
     return this.httpClient.post<Token>(this.apiUrl, payLoad);
   }
 }
