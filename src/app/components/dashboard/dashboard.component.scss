@@ -1,0 +1,26 @@
+
+.dashboard{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    h3{
+        color:white;
+        background-color: dodgerblue;
+    }
+    .left-container{
+        width: 20%;
+        height: 100%;
+        background-color: deepskyblue;
+    }
+    .right-container{
+        width:80%;
+        height:100%;
+        background-color:white;
+    }
+    button{
+        color: white;
+        background-color: blue;
+    }
+
+}

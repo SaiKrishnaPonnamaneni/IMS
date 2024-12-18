@@ -8,12 +8,16 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
+import { CreateStudentComponent } from './components/create-student/create-student.component';
+import { AllStudentsComponent } from './components/all-students/all-students.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponent,
+    CreateStudentComponent,
+    AllStudentsComponent,
   ],
   imports: [
     BrowserModule,
