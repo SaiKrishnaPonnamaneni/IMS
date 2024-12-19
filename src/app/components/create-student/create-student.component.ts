@@ -42,4 +42,7 @@ addEducation(){
     )
    )
 }
+deleteEducation(i:number){
+  this.educationFormArray.removeAt(i);
+}
 }
