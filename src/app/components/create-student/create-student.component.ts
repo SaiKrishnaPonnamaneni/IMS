@@ -23,7 +23,13 @@ public studentForm:FormGroup = new FormGroup(
         pincode: new FormControl(),
       }
     ),
-    education: new FormArray([])
+    education: new FormArray([]),
+    company: new FormGroup( {
+      name:  new FormControl(),
+      location:  new FormControl(),
+      package:  new FormControl(),
+      offerDate:  new FormControl(),
+  })
   }
 )
 
