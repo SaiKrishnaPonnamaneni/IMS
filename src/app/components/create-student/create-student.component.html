@@ -138,17 +138,25 @@
         <div class="form-group row">
           <label for="" class="col-sm-2 col-form-label col-form-label-sm">sourceType:</label>
           <div class="col-sm-10">
-              <div class="form-check form-check-inline ml-1 mr-2">
-                  <input type="radio" formControlName="sourceType" class="form-check-input" id="direct" value="Direct">
-                  <label class="form-check-label" for="">Direct</label>
-              </div>
-              <div class="form-check form-check-inline ml-1">
-                  <input type="radio" formControlName="sourceType" class="form-check-input" id="refer" value="Refer">
-                  <label class="form-check-label" for="">Refer</label>
-              </div>
-        </div>
-      </div>
-            <button class="flex-center" class="btn btn-default">Submit</button>
+            <div class="form-check form-check-inline ml-1 mr-2">
+              <input type="radio" name="sourceType" formControlName="sourceType" class="form-check-input" id="direct" value="Direct">
+              <label class="form-check-label" for="direct">Direct</label>
+            </div>
+            <div class="form-check form-check-inline ml-1">
+              <input type="radio" name="sourceType" formControlName="sourceType" class="form-check-input" id="refer" value="Refer">
+              <label class="form-check-label" for="refer">Refer</label>
+            </div>
+            <div class="form-check form-check-inline ml-1" *ngIf="studentForm.get('sourceType')?.value === 'Direct'">
+              <label class="form-check-label" for="sourceFrom">SourceFrom:</label>
+              <input type="text" formControlName="sourceFrom" class="form-control" id="sourceFrom">
+            </div>
+            <div class="form-check form-check-inline ml-1" *ngIf="studentForm.get('sourceType')?.value === 'Refer'">
+              <label class="form-check-label" for="referralName">ReferralName:</label>
+              <input type="text" formControlName="referralName" class="form-control" id="referralName">
+            </div>
+          </div>
+        </div>        
+            <button class="flex-center" class="btn btn-default" (click)="submit()">Submit</button>
       </form>
     </div>
 </div>

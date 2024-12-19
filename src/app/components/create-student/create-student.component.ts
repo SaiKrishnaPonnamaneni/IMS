@@ -34,6 +34,21 @@ public studentForm:FormGroup = new FormGroup(
   }
 )
 
+constructor(){
+  this.studentForm.get('sourceType')?.valueChanges.subscribe(
+    (data:any)=>{
+     if(data=='Direct'){
+      this.studentForm.addControl('sourceFrom',new FormControl)
+      this.studentForm.removeControl('referralName')
+     } else if(data=='Refer'){
+      this.studentForm.addControl('referralName',new FormControl)
+      this.studentForm.removeControl('sourceFrom')
+     }
+
+    }
+  )
+}
+
 get educationFormArray(){
   return this.studentForm.get('education') as FormArray;
 }
@@ -51,5 +66,8 @@ addEducation(){
 }
 deleteEducation(i:number){
   this.educationFormArray.removeAt(i);
+}
+submit(){
+  console.log(this.studentForm)
 }
 }
