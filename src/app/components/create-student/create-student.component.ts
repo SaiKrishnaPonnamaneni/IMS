@@ -27,7 +27,6 @@ public studentForm:FormGroup = new FormGroup(
   }
 )
 
-
 get educationFormArray(){
   return this.studentForm.get('education') as FormArray;
 }
