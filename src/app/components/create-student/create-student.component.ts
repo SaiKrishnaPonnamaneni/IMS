@@ -16,4 +16,7 @@ public studentForm:FormGroup = new FormGroup(
     batch: new FormControl(),
   }
 )
+submit(){
+  console.log(this.studentForm);
+}
 }
