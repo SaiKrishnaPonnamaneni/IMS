@@ -23,6 +23,11 @@ public studentForm:FormGroup = new FormGroup(
         pincode: new FormControl(),
       }
     ),
+    education: new FormControl({
+      qualification:  new FormControl(),
+      year:  new FormControl(),
+      percentage:  new FormControl(),
+  })
   }
 )
 }
