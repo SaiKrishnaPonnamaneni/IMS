@@ -73,29 +73,38 @@
                   </div>
               </div>
           </div>
-          <div class="form-group row" formGroupName="education">
-            <label for=" " class="col-sm-2 col-form-label col-form-label-sm">Education:</label>
-            <div class="col-sm-10"><br>
-                <div class="form-group row">
-                    <label for=" " class="col-sm-2 col-form-label col-form-label-sm">Qualification:</label>
-                    <div class="col-sm-10">
-                      <input type="text" formControlName="qualification" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Qualification">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for=" " class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
-                    <div class="col-sm-10">
-                      <input type="text" formControlName="year" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Year">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for=" " class="col-sm-2 col-form-label col-form-label-sm">Percentage:</label>
-                    <div class="col-sm-10">
-                      <input type="text" formControlName="percentage" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Percentage">
-                    </div>
-                </div>
-            </div>
-        </div>
+          <label for="">Education</label>&#160;
+          <button class="btn btn-info" (click)="addEducation()">Add Education</button><br><br>
+          
+          <div formArrayName="education">
+              <div *ngFor="let education of educationFormArray.controls; let i=index">
+                  <div [formGroupName]="i">
+                      <h2>Education {{i + 1}}</h2>
+          
+                      <div class="form-group row">
+                          <label for="" class="col-sm-2 col-form-label col-form-label-sm">Qualification:</label>
+                          <div class="col-sm-10">
+                              <input type="text" formControlName="qualification" class="form-control form-control-sm" placeholder="Qualification">
+                          </div>
+                      </div>
+          
+                      <div class="form-group row">
+                          <label for="" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
+                          <div class="col-sm-10">
+                              <input type="text" formControlName="year" class="form-control form-control-sm" placeholder="Year">
+                          </div>
+                      </div>
+          
+                      <div class="form-group row">
+                          <label for="" class="col-sm-2 col-form-label col-form-label-sm">Percentage:</label>
+                          <div class="col-sm-10">
+                              <input type="text" formControlName="percentage" class="form-control form-control-sm" placeholder="Percentage">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
             <button class="flex-center" class="btn btn-default">Submit</button>
       </form>
     </div>
