@@ -6,12 +6,13 @@
 
     h3{
         color:white;
-        background-color: dodgerblue;
+        background-color: cadetblue;
     }
     .left-container{
         width: 20%;
         height: 100%;
-        background-color: deepskyblue;
+        background-color: rgb(112, 173, 175);
+        overflow: auto;
     }
     .right-container{
         width:80%;
@@ -20,7 +21,6 @@
     }
     button{
         color: white;
-        background-color: blue;
     }
 
 }
