@@ -1,1 +1,69 @@
-<p>all-students works!</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Sno</th>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+        <th scope="col">Batch</th>
+        <th scope="col">Address</th>
+        <th scope="col">Company</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let student of students;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.gender}}</td>
+        <td>{{student.mobile}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.batch|date:'yyyy-MMMM-dd'}}</td>
+        <td>{{student?.address?.city}}
+            {{student?.address?.district}}
+            {{student?.address?.state}}
+        </td>
+        <td>{{student?.company?.name}}
+           {{student?.company?.package}}
+         </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- createdAt: string;
+    name: string;
+    avatar: string;
+    id: string;
+    gender: string;
+    mobile: string;
+    email: string;
+    batch: number;
+    address: {
+        city: string;
+        mandal: string;
+        district: string;
+        state: string;
+        pincode: string;
+    };
+    education: {
+        qualification: string | null;
+        year: number | null;
+        percentage: string;
+    }[];
+    company: {
+        name: string;
+        location: string;
+        package: string;
+        offerDate: string;
+    };
+    sourceType: string;
+    sourceFrom: string;
+    educationalDetails: any[]; // Specify the type if known
+    sourceForm: string;
+    Refer: string | null;
+    type: string;
+    referral: string | null;
+    text: string | null;
+    educationdetails: any[]; // Specify the type if known
+    referralName: string;
+} -->

@@ -14,4 +14,7 @@ export class StudentService {
   createStudent(data:Student):Observable<any>{
    return this.httpClient.post(this.apiUrl,data)
   }
+  getStudent():Observable<any>{
+    return this.httpClient.get(this.apiUrl)
+  }
 }
