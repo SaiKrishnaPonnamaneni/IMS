@@ -17,4 +17,7 @@ export class StudentService {
   getStudent():Observable<any>{
     return this.httpClient.get(this.apiUrl)
   }
+  getPagedStudents(limit:number,page:number):Observable<any>{
+     return this.httpClient.get(this.apiUrl+"?limit="+limit+"&page="+page)
+  }
 }

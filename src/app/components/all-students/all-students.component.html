@@ -1,3 +1,24 @@
+<div class="form-group form-group-inline">
+  <label for="limitSelect">Limit</label>
+  <select id="limitSelect" class="form-control small-select" [(ngModel)]="limit">
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>  
+  </select>
+</div>
+<div class="form-group form-group-inline">
+  <label for="pageSelect">Page</label>
+  <select id="pageSelect" class="form-control small-select" [(ngModel)]="page">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+</div>
+
+<button class="btn btn-primary" (click)="pagedStudents()">Pagination</button>
+
+
+
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -30,40 +51,4 @@
     </tbody>
   </table>
 
-  <!-- createdAt: string;
-    name: string;
-    avatar: string;
-    id: string;
-    gender: string;
-    mobile: string;
-    email: string;
-    batch: number;
-    address: {
-        city: string;
-        mandal: string;
-        district: string;
-        state: string;
-        pincode: string;
-    };
-    education: {
-        qualification: string | null;
-        year: number | null;
-        percentage: string;
-    }[];
-    company: {
-        name: string;
-        location: string;
-        package: string;
-        offerDate: string;
-    };
-    sourceType: string;
-    sourceFrom: string;
-    educationalDetails: any[]; // Specify the type if known
-    sourceForm: string;
-    Refer: string | null;
-    type: string;
-    referral: string | null;
-    text: string | null;
-    educationdetails: any[]; // Specify the type if known
-    referralName: string;
-} -->
+  
