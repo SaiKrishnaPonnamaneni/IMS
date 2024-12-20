@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormArrayName, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Student } from 'src/app/models/student';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-create-student',
@@ -34,7 +36,7 @@ public studentForm:FormGroup = new FormGroup(
   }
 )
 
-constructor(){
+constructor(private studentService:StudentService){
   this.studentForm.get('sourceType')?.valueChanges.subscribe(
     (data:any)=>{
      if(data=='Direct'){
@@ -67,7 +69,17 @@ addEducation(){
 deleteEducation(i:number){
   this.educationFormArray.removeAt(i);
 }
+
 submit(){
-  console.log(this.studentForm)
+  this.studentService.createStudent(this.studentForm.value).subscribe(
+  (data:any)=>{
+    this.studentForm=data;
+    alert("Created Student Sccesfully")
+  },
+  (err:any)=>{
+    alert("Creation Faild");
+  }
+  )
+  
 }
 }
