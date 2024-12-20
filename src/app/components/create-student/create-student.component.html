@@ -148,7 +148,14 @@
             </div>
             <div class="form-check form-check-inline ml-1" *ngIf="studentForm.get('sourceType')?.value === 'Direct'">
               <label class="form-check-label" for="sourceFrom">SourceFrom:</label>
-              <input type="text" formControlName="sourceFrom" class="form-control" id="sourceFrom">
+              <div class="form-check form-check-inline ml-1 mr-2">
+                <input type="radio" name="sourceFrom" formControlName="sourceFrom" class="form-check-input" id="direct" value="SocialMedia">
+                <label class="form-check-label" for="direct">SocialMedia</label>
+              </div>
+              <div class="form-check form-check-inline ml-1">
+                <input type="radio" name="sourceFrom" formControlName="sourceFrom" class="form-check-input" id="refer" value="Office">
+                <label class="form-check-label" for="refer">Office</label>
+              </div>
             </div>
             <div class="form-check form-check-inline ml-1" *ngIf="studentForm.get('sourceType')?.value === 'Refer'">
               <label class="form-check-label" for="referralName">ReferralName:</label>
