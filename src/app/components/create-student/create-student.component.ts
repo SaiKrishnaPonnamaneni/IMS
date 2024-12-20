@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormArrayName, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormArrayName, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-student',
@@ -9,18 +9,18 @@ import { FormArray, FormArrayName, FormControl, FormGroup } from '@angular/forms
 export class CreateStudentComponent {
 public studentForm:FormGroup = new FormGroup(
   {
-    name: new FormControl(),
-    gender: new FormControl(),
-    mobile: new FormControl(),
-    email: new FormControl(),
-    batch: new FormControl(),
+    name: new FormControl('',[Validators.required]),
+    gender: new FormControl('',[Validators.required]),
+    mobile: new FormControl('',[Validators.required,Validators.pattern('^[0-9]*$'),Validators.min(1000000000),Validators.max(9999999999)]),
+    email: new FormControl('',[Validators.required]),
+    batch: new FormControl('',[Validators.required]),
     address: new FormGroup(
       {
         city: new FormControl(),
         mandal: new FormControl(),
-        district: new FormControl(),
+        district: new FormControl('',[Validators.required]),
         state: new FormControl(),
-        pincode: new FormControl(),
+        pincode: new FormControl('',[Validators.required,Validators.maxLength(6)]),
       }
     ),
     education: new FormArray([]),
@@ -59,7 +59,7 @@ addEducation(){
       {
         qualification:new FormControl(),
         year: new FormControl(),
-        percentage: new FormControl(),
+        percentage: new FormControl('',[Validators.min(0),Validators.max(100)]),
       }
     )
    )
