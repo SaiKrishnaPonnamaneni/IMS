@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormArrayName, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, RouterLinkActive } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -36,7 +37,17 @@ public studentForm:FormGroup = new FormGroup(
   }
 )
 
-constructor(private studentService:StudentService){
+constructor(private studentService:StudentService, private routeActivate:ActivatedRoute){
+  routeActivate.params.subscribe(
+  (data:any)=>{
+  studentService.getStudentDetails(data.id).subscribe(
+    (data:any)=>{
+      this.studentForm.patchValue(data)
+    }
+  )
+  }
+  )
+
   this.studentForm.get('sourceType')?.valueChanges.subscribe(
     (data:any)=>{
      if(data=='Direct'){
