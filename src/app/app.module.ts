@@ -11,6 +11,7 @@ import { TokenInterceptor } from './services/interceptors/token.interceptor';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
+import { PercentagePipe } from './services/pipes/percentage.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { StudentDetailsComponent } from './components/student-details/student-de
     CreateStudentComponent,
     AllStudentsComponent,
     StudentDetailsComponent,
+    PercentagePipe,
   ],
   imports: [
     BrowserModule,

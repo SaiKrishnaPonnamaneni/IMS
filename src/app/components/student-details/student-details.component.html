@@ -22,7 +22,7 @@
         <td *ngFor="let edu of student.education">
             {{edu?.qualification}}
             {{edu?.year}}
-            {{edu?.percentage}}
+            {{edu?.percentage|percentage}}
         </td>
         <td>{{student?.company?.name}}
            {{student?.company?.package}}
