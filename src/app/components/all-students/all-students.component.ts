@@ -11,6 +11,8 @@ export class AllStudentsComponent {
   students: Student[] = [];
   limit : number=0;
   page : number=0;
+  column:string='';
+  order:string='';
   constructor(private studentService:StudentService){
     this.studentService.getStudent().subscribe(
       (data:Student[])=>{
@@ -33,6 +35,16 @@ export class AllStudentsComponent {
     )
 
   }
+  sort(){
+    this.studentService.getSortedStudents(this.column,this.order).subscribe(
+      (data:any)=>{
+        this.students=data;
+      },
+      (err:any)=>{
+        alert("Internal Server Error")
+      }
+    
+ ) }
 
   
 }

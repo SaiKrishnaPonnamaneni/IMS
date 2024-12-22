@@ -11,4 +11,11 @@
   .form-group-inline label {
     margin-right: 10px; /* Adjust the space between label and select */
   }
-  
+  .pagination, .sorting {
+    height: 100px;
+    background-color: lightblue;
+    display: inline-block;
+}
+.pagination {
+    margin-right: 20px; /* Add space between the divs */
+}
