@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Route } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -9,14 +10,21 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StudentDetailsComponent {
   students: Student[] = [];
-  id:string=''
-  constructor(private studentService:StudentService){}
-  getStudent(){
-    this.studentService.getStudentDetails(this.id).subscribe(
-      (data:Student[])=>{
-        this.students=data;
-      }
-    )
-  }  
 
+  constructor(private studentService: StudentService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.getStudent(params['id']);
+    });
+  }
+
+  getStudent(id: string): void {
+    this.studentService.getStudentDetails(id).subscribe(
+      (data: Student[]) => {
+        this.students = data;
+      },
+      (error: any) => {
+        console.error('Error fetching student details', error);
+      }
+    );
+  }
 }

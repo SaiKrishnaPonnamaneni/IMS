@@ -51,6 +51,7 @@
         <th scope="col">Batch</th>
         <th scope="col">Address</th>
         <th scope="col">Company</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody >
@@ -67,6 +68,9 @@
         </td>
         <td>{{student?.company?.name}}
            {{student?.company?.package}}
+         </td>
+         <td>
+          <button routerLink="/dashboard/student-details/{{student.id}}" class="btn btn-primary">View</button>
          </td>
       </tr>
     </tbody>

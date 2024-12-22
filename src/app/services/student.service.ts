@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Student } from '../models/student';
 
 @Injectable({
@@ -27,7 +27,9 @@ export class StudentService {
     return this.httpClient.get(this.apiUrl+"?filter="+term)
 
   }
-  getStudentDetails(id:string):Observable<any>{
-    return this.httpClient.get(this.apiUrl+"/"+id)
+  getStudentDetails(id: string): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(this.apiUrl+"/"+id).pipe(
+      map((response: any) => Array.isArray(response) ? response : [response])
+    );
   }
 }
