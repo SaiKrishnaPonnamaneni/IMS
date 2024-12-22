@@ -27,4 +27,7 @@ export class StudentService {
     return this.httpClient.get(this.apiUrl+"?filter="+term)
 
   }
+  getStudentDetails(id:string):Observable<any>{
+    return this.httpClient.get(this.apiUrl+"/"+id)
+  }
 }

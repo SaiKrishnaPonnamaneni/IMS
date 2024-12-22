@@ -10,6 +10,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { StudentDetailsComponent } from './components/student-details/student-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { AllStudentsComponent } from './components/all-students/all-students.com
     PageNotFoundComponent,
     CreateStudentComponent,
     AllStudentsComponent,
+    StudentDetailsComponent,
   ],
   imports: [
     BrowserModule,
