@@ -1,0 +1,38 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Personal Information</th>
+        <th scope="col">Address Information/th>
+        <th scope="col">Education Information</th>
+        <th scope="col">Company Information</th>
+        <th scope="col">Refferal Information</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let student of students;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{student.name}}
+            {{student.gender}}
+            {{student.mobile}}
+            {{student.email}}
+            {{student.batch|date:'yyyy-MMMM-dd'}}</td>
+        <td>{{student?.address?.city}}
+            {{student?.address?.district}}
+            {{student?.address?.state}}
+        </td>
+        <td *ngFor="let edu of student.education">
+            {{edu?.qualification}}
+            {{edu?.year}}
+            {{edu?.percentage}}
+        </td>
+        <td>{{student?.company?.name}}
+           {{student?.company?.package}}
+         </td>
+         <td>{{student?.Refer}}
+             {{student?.referralName}}
+             {{student?.sourceType}}
+             {{student?.sourceFrom}}
+         </td>
+      </tr>
+    </tbody>
+  </table>
