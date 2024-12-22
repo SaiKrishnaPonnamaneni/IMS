@@ -13,6 +13,7 @@ export class AllStudentsComponent {
   page : number=0;
   column:string='';
   order:string='';
+  term:string='';
   constructor(private studentService:StudentService){
     this.studentService.getStudent().subscribe(
       (data:Student[])=>{
@@ -45,6 +46,16 @@ export class AllStudentsComponent {
       }
     
  ) }
+ filter(){
+  this.studentService.getFilteredStudents(this.term).subscribe(
+    (data:any)=>{
+      this.students=data;
+    },
+    (err:any)=>{
+      alert("Internal Server Error")
+    }
+  
+) }
 
   
 }
