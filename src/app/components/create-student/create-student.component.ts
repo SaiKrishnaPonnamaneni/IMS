@@ -10,6 +10,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./create-student.component.scss']
 })
 export class CreateStudentComponent {
+  id:string='';
 public studentForm:FormGroup = new FormGroup(
   {
     name: new FormControl('',[Validators.required]),
@@ -82,6 +83,16 @@ deleteEducation(i:number){
 }
 
 submit(){
+  if(this.id){
+    this.studentService.updateStudent(this.id,this.studentForm.value).subscribe(
+      (data:any)=>{
+        alert("Student Updated Sccesfully")
+      },
+      (err:any)=>{
+        alert("Updation Faild");
+      }
+      )
+  }
   this.studentService.createStudent(this.studentForm.value).subscribe(
   (data:any)=>{
     this.studentForm=data;
