@@ -32,4 +32,7 @@ export class StudentService {
       map((response: any) => Array.isArray(response) ? response : [response])
     );
   }
+  updateStudent(id:string,data:any):Observable<any>{
+    return this.httpClient.put(this.apiUrl+"/"+id, data)
+  }
 }
