@@ -1,4 +1,5 @@
 <div class="flex-center">
+  <input type="text" [(ngModel)]="term" (keyup)="filter()" placeholder="search here">&nbsp;&nbsp;
   <div class="pagination">
     <div class="form-group form-group-inline">
       <label for="limitSelect">Limit</label>
