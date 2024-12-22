@@ -9,6 +9,8 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class AllStudentsComponent {
   students: Student[] = [];
+  limit : number=0;
+  page : number=0;
   constructor(private studentService:StudentService){
     this.studentService.getStudent().subscribe(
       (data:Student[])=>{
@@ -20,4 +22,17 @@ export class AllStudentsComponent {
     )
   }
 
+  pagedStudents(){
+    this.studentService.getPagedStudents(this.limit,this.page).subscribe(
+      (data:Student[])=>{
+        this.students=data;
+      },
+      (err:any)=>{
+        alert("Internal Server Error")
+      }
+    )
+
+  }
+
+  
 }
