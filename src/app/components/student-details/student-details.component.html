@@ -2,7 +2,7 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">Personal Information</th>
-        <th scope="col">Address Information/th>
+        <th scope="col">Address Information</th>
         <th scope="col">Education Information</th>
         <th scope="col">Company Information</th>
         <th scope="col">Refferal Information</th>
@@ -10,7 +10,6 @@
     </thead>
     <tbody >
       <tr *ngFor="let student of students;let i=index">
-        <th scope="row">{{i+1}}</th>
         <td>{{student.name}}
             {{student.gender}}
             {{student.mobile}}
