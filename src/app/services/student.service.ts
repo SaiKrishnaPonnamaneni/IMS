@@ -28,9 +28,7 @@ export class StudentService {
 
   }
   getStudentDetails(id: string): Observable<Student[]> {
-    return this.httpClient.get<Student[]>(this.apiUrl+"/"+id).pipe(
-      map((response: any) => Array.isArray(response) ? response : [response])
-    );
+    return this.httpClient.get<Student[]>(this.apiUrl+"/"+id)
   }
   updateStudent(id:string,data:any):Observable<any>{
     return this.httpClient.put(this.apiUrl+"/"+id, data)
