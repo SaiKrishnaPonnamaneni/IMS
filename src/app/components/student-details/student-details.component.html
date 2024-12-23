@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody >
-      <tr *ngFor="let student of students;let i=index">
+      <tr>
         <td>{{student.name}}
             {{student.gender}}
             {{student.mobile}}
@@ -19,10 +19,15 @@
             {{student?.address?.district}}
             {{student?.address?.state}}
         </td>
-        <td *ngFor="let edu of student.education">
-            {{edu?.qualification}}
-            {{edu?.year}}
-            {{edu?.percentage|percentage}}
+        <td>
+          <div *ngIf="student?.education?.length > 0; else noEducation">
+            <div *ngFor="let edu of student?.education">
+              {{ edu.qualification || 'N/A' }} <br>
+              {{ edu.year || 'N/A' }} <br>
+              {{ edu.percentage | percentage }}
+            </div>
+          </div>
+          <ng-template #noEducation>No Education Data</ng-template>
         </td>
         <td>{{student?.company?.name}}
            {{student?.company?.package|package}}

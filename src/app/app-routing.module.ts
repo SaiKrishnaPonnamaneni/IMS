@@ -16,7 +16,8 @@ const routes: Routes = [
     {path:'student-details/:id',component:StudentDetailsComponent},
     {path:'edit-student/:id',component:CreateStudentComponent}
   ]},
-  {path:'**',component:PageNotFoundComponent}
+  //{path:'',component:LoginComponent},
+  {path:'**',component:PageNotFoundComponent},
 ];
 
 @NgModule({

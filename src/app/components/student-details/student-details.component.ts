@@ -9,7 +9,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./student-details.component.scss']
 })
 export class StudentDetailsComponent {
-  students: Student[] = [];
+  student: any = {}
 
   constructor(private studentService: StudentService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -19,8 +19,8 @@ export class StudentDetailsComponent {
 
   getStudent(id: string): void {
     this.studentService.getStudentDetails(id).subscribe(
-      (data: Student[]) => {
-        this.students = data;
+      (data: any) => {
+        this.student = data;
       },
       (error: any) => {
         console.error('Error fetching student details', error);
