@@ -44,8 +44,10 @@ export class CreateStudentComponent {
       if (params['id']) {
         this.studentService.getStudentDetails(params['id']).subscribe((data: any) => {
           //console.log('Route parameters:', params);
+          for(let eduction of data.education){
+            this.addEducation();
+          }
           this.studentForm.patchValue(data);
-          this.setEducationArray(data.education || []);
         });
       }
     });
@@ -82,18 +84,6 @@ export class CreateStudentComponent {
   deleteEducation(i: number) {
     this.educationFormArray.removeAt(i);
   }
-  setEducationArray(education: any[]) {
-    const educationFormArray = this.educationFormArray;
-    educationFormArray.clear();
-    education.forEach(edu => {
-      educationFormArray.push(new FormGroup({
-        qualification: new FormControl(edu.qualification),
-        year: new FormControl(edu.year),
-        percentage: new FormControl(edu.percentage, [Validators.min(0), Validators.max(100)])
-      }));
-    });
-  }
-
   submit() {
     if (this.id) {
       this.studentService.updateStudent(this.id, this.studentForm.value).subscribe(
