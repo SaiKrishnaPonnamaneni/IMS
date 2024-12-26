@@ -24,7 +24,9 @@
             <div *ngFor="let edu of student?.education">
               {{ edu.qualification || 'N/A' }} <br>
               {{ edu.year || 'N/A' }} <br>
-              {{ edu.percentage | percentage }}
+              <span [ngClass]="{'green-background': edu.percentage >= 60, 'red-background': edu.percentage < 60}">
+                {{ edu.percentage | percentage }}
+              </span>
             </div>
           </div>
           <ng-template #noEducation>No Education Data</ng-template>
